@@ -31,6 +31,7 @@ def predict_sentiment(model, sentence, vocab, unk_idx=0):
     tensor = torch.LongTensor(indexes).unsqueeze(0) #convert to tensor and add batch dimension
     output = model(tensor, batch_size=1) #get output from model
     # prediction = torch.sigmoid(output) #squeeze between 0-1 range
+    output = output.squeeze().tolist()
     return output
 
 class LSTM_AttentionModel(nn.Module):

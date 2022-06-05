@@ -7,16 +7,21 @@
     <title>Document</title>
   </head>
   <body>
-    <form action="/api" method="POST">
+    <div style="display: flex;justify-content: center;align-items: center;flex-direction: column; ">
+    <form action="/api" method="POST" style="display: flex;justify-content: center;align-items: center;flex-direction: column;">
       <textarea
         name="review_post"
         placeholder="Enter your post here..."
         rows="10"
-        cols="30"
+        cols="50"
       ></textarea>
       <br/>
-      <input type="submit" value="Post" />
+      <input style="margin-top: 1rem; margin-bottom: 1rem;"type="submit" value="Post" />
     </form>
-    {{predict}}
+    {% if text %}
+      Post: {{text}}<br/>
+      Evaluation: {{msg}}
+    {% endif %}
+  </div>
   </body>
 </html>
