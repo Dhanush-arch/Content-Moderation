@@ -8,9 +8,6 @@ toxicity_model = init_toxicity_model()
 binary_classifier_model = loadModel()
 binary_classifier_model.eval()
 
-nltk.download('punkt')
-nltk.download('stopwords')
-
 euphemism_answer, input_keywords, target_name = read_input_and_ground_truth("drug")
 
 input_text = ""
@@ -25,7 +22,7 @@ def read_vocab():
     return vocab
 
 vocabs = read_vocab()
-print(vocabs)
+# print(vocabs)
 
 @app.route('/')
 def index():
@@ -66,4 +63,5 @@ def predict():
     return redirect("/")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # app.run(host="0.0.0.0", port=80, debug=True)
+    app.run()
